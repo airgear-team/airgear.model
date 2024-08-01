@@ -110,4 +110,7 @@ public class Goods {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "goods_id", referencedColumnName = "id")
     private List<GoodsImages> images = new ArrayList<>();
+
+    @Column(name = "source_url")
+    private String sourceUrl;
 }
