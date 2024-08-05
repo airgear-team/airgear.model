@@ -85,4 +85,6 @@ public class User {
                     @JoinColumn(name = "GOODS_ID")})
     private Set<Goods> favoriteGoods;
 
+    @Column(name = "activation_token")
+    private String activationToken;
 }
