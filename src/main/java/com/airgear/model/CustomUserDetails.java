@@ -7,11 +7,11 @@ import java.util.Set;
 
 public class CustomUserDetails extends org.springframework.security.core.userdetails.User {
 
-    public CustomUserDetails(User source) {
+    public CustomUserDetails(com.airgear.model.User source) {
         super(
                 source.getEmail(),
                 source.getPassword(),
-                source.getStatus().equals(UserStatus.ACTIVE),
+                source.getStatus().equals(UserStatus.ACTIVE) || source.getStatus().equals(UserStatus.PENDING_ACTIVATION),
                 true,
                 true,
                 true,
@@ -19,7 +19,7 @@ public class CustomUserDetails extends org.springframework.security.core.userdet
         );
     }
 
-    private static Set<SimpleGrantedAuthority> getAuthorities(User source) {
+    private static Set<SimpleGrantedAuthority> getAuthorities(com.airgear.model.User source) {
         Set<SimpleGrantedAuthority> authorities = new HashSet<>();
         source.getRoles().forEach(role -> authorities.add(new SimpleGrantedAuthority("ROLE_" + role.name())));
         return authorities;

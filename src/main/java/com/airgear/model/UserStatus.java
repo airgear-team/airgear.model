@@ -3,5 +3,6 @@ package com.airgear.model;
 
 public enum UserStatus {
     ACTIVE,
-    SUSPENDED
+    SUSPENDED,
+    PENDING_ACTIVATION
 }
