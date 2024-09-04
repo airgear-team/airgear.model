@@ -87,4 +87,8 @@ public class User {
 
     @Column(name = "activation_token")
     private String activationToken;
+
+    @Column(name = "description", length = 1000)
+    @Size(max = 1000)
+    private String description;
 }
